@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Provider from "./context/Provider";
-import Context from "./context/Context";
 import Consumer from "./context/Consumer";
 
 const Person = props => {
@@ -25,7 +24,12 @@ class App extends Component {
     return (
       <Provider>
         <Consumer>
-          <h1>Context API app 😀</h1>
+          <h1>
+            Context API app{" "}
+            <span role="img" aria-label="Happy face">
+              😀
+            </span>
+          </h1>
           <Person />
           <MoarButton />
         </Consumer>

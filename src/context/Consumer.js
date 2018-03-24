@@ -1,5 +1,5 @@
 import MyContext from "./Context";
-import React, { Component } from "react";
+import React from "react";
 
 const childWithProps = (props, context) =>
   React.Children.map(props.children, child => {
