@@ -1,15 +1,15 @@
 import MyContext from "./Context";
 import React from "react";
 
-const childWithProps = (props, context) =>
+const childWithProps = (props, state, actions) =>
   React.Children.map(props.children, child => {
-    return React.cloneElement(child, { context: context });
+    return React.cloneElement(child, { state, actions });
   });
 
 const Consumer = props => {
   return (
     <MyContext.Consumer>
-      {context => childWithProps(props, context)}
+      {({ state, actions }) => childWithProps(props, state, actions)}
     </MyContext.Consumer>
   );
 };

@@ -1,15 +1,14 @@
 import React, { Component } from "react";
-import Provider from "./context/Provider";
 import Consumer from "./context/Consumer";
 
-const Person = props => {
-  return <p>Age: {props.context.state.age}</p>;
+const Person = ({state}) => {
+  return <p>Age: {state.age}</p>;
 };
 
-const MoarButton = props => {
+const MoarButton = ({state, actions}) => {
   return (
     <div>
-      <button onClick={props.context.growAYearOlder}>More age </button>
+      <button onClick={actions.growAYearOlder}>More age </button>
     </div>
   );
 };
@@ -22,18 +21,16 @@ class App extends Component {
 
   render() {
     return (
-      <Provider>
-        <Consumer>
-          <h1>
-            Context API app{" "}
-            <span role="img" aria-label="Happy face">
-              😀
-            </span>
-          </h1>
-          <Person />
-          <MoarButton />
-        </Consumer>
-      </Provider>
+      <Consumer>
+        <h1>
+          Context API app{" "}
+          <span role="img" aria-label="Happy face">
+            😀
+          </span>
+        </h1>
+        <Person />
+        <MoarButton />
+      </Consumer>
     );
   }
 }
