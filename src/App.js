@@ -1,17 +1,15 @@
 import React, { Component } from "react";
 import Consumer from "./context/Consumer";
+import Provider from "./context/Provider";
+// import Loadable from 'react-loadable';
+import asyncComponent from "./components/AsyncComponent";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Grid } from "semantic-ui-react";
 
-const Person = ({state}) => {
-  return <p>Age: {state.age}</p>;
-};
+import Navbar from "./components/Navbar";
 
-const MoarButton = ({state, actions}) => {
-  return (
-    <div>
-      <button onClick={actions.growAYearOlder}>More age </button>
-    </div>
-  );
-};
+const LoadableHome = asyncComponent(() => import("./views/Home"));
+const LoadableAbout = asyncComponent(() => import("./views/About"));
 
 class App extends Component {
   constructor(props) {
@@ -21,17 +19,45 @@ class App extends Component {
 
   render() {
     return (
-      <Consumer>
-        <h1>
-          Context API app{" "}
-          <span role="img" aria-label="Happy face">
-            😀
-          </span>
-        </h1>
-        <Person />
-        <MoarButton />
-      </Consumer>
+      <Router>
+        <Provider>
+          <Navbar />
+          <Grid padded>
+            <Switch>
+              <Route
+                exact
+                path="/"
+                render={props => (
+                  <div>
+                    <Consumer>
+                      <LoadableHome {...props} />
+                    </Consumer>
+                  </div>
+                )}
+              />
+              <Route
+                path="/about"
+                render={props => (
+                  <div>
+                    <Consumer>
+                      <LoadableAbout {...props} />
+                    </Consumer>
+                  </div>
+                )}
+              />
+              <Route
+                render={props => (
+                  <div>
+                    <h1>Not found... NOOO!!!!!</h1>
+                  </div>
+                )}
+              />
+            </Switch>
+          </Grid>
+        </Provider>
+      </Router>
     );
   }
 }
+
 export default App;
