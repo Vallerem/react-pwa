@@ -19,41 +19,29 @@ class App extends Component {
   render() {
     return (
       // <React.StrictMode>
-        <Router>
-          <Provider>
-            <Navbar />
-            <Switch>
-              <Route
-                exact
-                path="/"
-                render={props => (
-                  <div>
-                    <Consumer>
-                      <LoadableHome {...props} />
-                    </Consumer>
-                  </div>
-                )}
-              />
-              <Route
-                path="/about"
-                render={props => (
-                  <div>
-                    <Consumer>
-                      <LoadableAbout {...props} />
-                    </Consumer>
-                  </div>
-                )}
-              />
-              <Route
-                render={props => (
-                  <div>
-                    <h1>Not found... NOOO!!!!!</h1>
-                  </div>
-                )}
-              />
-            </Switch>
-          </Provider>
-        </Router>
+      <Router>
+        <Provider>
+          <Navbar />
+          <Switch>
+            <Route
+              exact
+              path="/"
+              render={props => <LoadableHome {...props} />}
+            />
+            <Route
+              path="/about"
+              render={props => <LoadableAbout {...props} />}
+            />
+            <Route
+              render={props => (
+                <div>
+                  <h1>Not found... NOOO!!!!!</h1>
+                </div>
+              )}
+            />
+          </Switch>
+        </Provider>
+      </Router>
       // </React.StrictMode>
     );
   }

@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { Grid } from "semantic-ui-react";
-
+import withConsumer from "../context/Consumer";
 import QueryHandler from "../components/QueryHandler";
+
+import { Grid } from "semantic-ui-react";
 
 export class Home extends Component {
   constructor(props) {
@@ -16,7 +17,7 @@ export class Home extends Component {
           <Grid.Column>
             <div>
               <h1>Home</h1>
-              <p>Age: {this.props.state.age}</p>
+              <p>Age: {this.props.globalState.age}</p>
               <div>
                 <button onClick={this.props.actions.growAYearOlder}>
                   More age
@@ -35,4 +36,4 @@ export class Home extends Component {
   }
 }
 
-export default Home;
+export default withConsumer(Home);

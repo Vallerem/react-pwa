@@ -1,17 +1,16 @@
 import MyContext from "./Context";
 import React from "react";
 
-const childWithProps = (props, state, actions) =>
-  React.Children.map(props.children, child => {
-    return React.cloneElement(child, { state, actions });
-  });
-
-const Consumer = props => {
-  return (
-    <MyContext.Consumer>
-      {({ state, actions }) => childWithProps(props, state, actions)}
-    </MyContext.Consumer>
-  );
+const withConsumer = Component => {
+  return function ThemedComponent(props) {
+    return (
+      <MyContext.Consumer>
+        {({ state, actions }) => (
+          <Component {...props} globalState={state} actions={actions} />
+        )}
+      </MyContext.Consumer>
+    );
+  };
 };
 
-export default Consumer;
+export default withConsumer;
