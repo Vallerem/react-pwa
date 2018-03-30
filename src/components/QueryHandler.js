@@ -1,31 +1,36 @@
 import React from "react";
 import { Query } from "react-apollo";
-import gql from "graphql-tag";
+import withConsumer from "../context/Consumer";
 import Loading from "./Loading";
+import ErrorHandler from "./ErrorHandler";
 
-// TODO: make it dynamic
-const QueryHandler = ({ query, component, loadingSize }) => (
-  <Query
-    query={gql`
-      {
-        rates(currency: "USD") {
-          currency
-          rate
-        }
-      }
-    `}
-  >
-    {({ loading, error, data }) => {
+const QueryHandler = ({
+  query,
+  Component,
+  loadingSize,
+  globalState,
+  actions
+}) => (
+  <Query query={query}>
+    {({ loading, error, data, ...rest }) => {
       if (loading) return <Loading size={loadingSize} />;
-      if (error) return <p>Error :(</p>;
-
-      return data.rates.map(({ currency, rate }) => (
-        <div key={currency}>
-          <p>{`${currency}: ${rate}`}</p>
-        </div>
-      ));
+      if (error) return <ErrorHandler />;
+      return <Component data={data} error={error} />;
     }}
   </Query>
 );
 
-export default QueryHandler;
+// Test component
+export const getData = ({ data, error }) => {
+  return (
+    <div>
+      {data.rates.map(({ currency, rate }) => (
+        <div key={currency}>
+          <p>{`${currency}: ${rate}`}</p>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default withConsumer(QueryHandler);

@@ -1,8 +1,17 @@
 import React, { Component } from "react";
 import withConsumer from "../context/Consumer";
-import QueryHandler from "../components/QueryHandler";
-
+import QueryHandler, { getData } from "../components/QueryHandler";
+import gql from "graphql-tag";
 import { Grid } from "semantic-ui-react";
+
+const localQuery = gql`
+{
+  rates(currency: "USD") {
+    currency
+    rate
+  }
+}
+`
 
 export class Home extends Component {
   constructor(props) {
@@ -27,8 +36,8 @@ export class Home extends Component {
 
             <hr />
 
-            <QueryHandler loadingSize="big" />
-
+            <QueryHandler query={localQuery} Component={getData} loadingSize="small" />
+          
           </Grid.Column>
         </Grid.Row>
       </Grid>
