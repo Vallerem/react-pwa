@@ -18,9 +18,10 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
-        <Provider>
-          <Navbar />
+      // <React.StrictMode>
+        <Router>
+          <Provider>
+            <Navbar />
             <Switch>
               <Route
                 exact
@@ -51,8 +52,9 @@ class App extends Component {
                 )}
               />
             </Switch>
-        </Provider>
-      </Router>
+          </Provider>
+        </Router>
+      // </React.StrictMode>
     );
   }
 }
