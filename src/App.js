@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import Consumer from "./context/Consumer";
 import Provider from "./context/Provider";
-// import Loadable from 'react-loadable';
+// import Loadable from 'react-loadable'; :´(
 import asyncComponent from "./components/AsyncComponent";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Grid } from "semantic-ui-react";
 
 import Navbar from "./components/Navbar";
 
@@ -22,7 +21,6 @@ class App extends Component {
       <Router>
         <Provider>
           <Navbar />
-          <Grid padded>
             <Switch>
               <Route
                 exact
@@ -53,7 +51,6 @@ class App extends Component {
                 )}
               />
             </Switch>
-          </Grid>
         </Provider>
       </Router>
     );

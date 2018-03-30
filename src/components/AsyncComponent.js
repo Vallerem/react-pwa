@@ -21,7 +21,7 @@ export default function asyncComponent(importComponent) {
 
     render() {
       const C = this.state.component;
-      return C ? <C {...this.props} /> : <Loading />;
+      return C ? <C {...this.props} /> : <Loading size="massive" />;
     }
   }
 

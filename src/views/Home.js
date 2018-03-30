@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { Grid } from "semantic-ui-react";
+
+import QueryHandler from "../components/QueryHandler";
 
 export class Home extends Component {
   constructor(props) {
@@ -7,17 +10,27 @@ export class Home extends Component {
   }
 
   render() {
-    console.log(this.props)
     return (
-      <div>
-        <h1>Home</h1>
+      <Grid padded>
+        <Grid.Row>
+          <Grid.Column>
+            <div>
+              <h1>Home</h1>
+              <p>Age: {this.props.state.age}</p>
+              <div>
+                <button onClick={this.props.actions.growAYearOlder}>
+                  More age
+                </button>
+              </div>
+            </div>
 
-        <p>Age: {this.props.state.age}</p>
+            <hr />
 
-        <div>
-          <button onClick={this.props.actions.growAYearOlder}>More age </button>
-        </div>
-      </div>
+            <QueryHandler loadingSize="big" />
+
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
     );
   }
 }
