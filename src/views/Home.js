@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import withConsumer from "../context/Consumer";
-import QueryHandler, { getData } from "../components/QueryHandler";
+import withConsumer from "context/Consumer";
+import QueryHandler, { getData } from "components/QueryHandler";
 import gql from "graphql-tag";
 import { Grid } from "semantic-ui-react";
 

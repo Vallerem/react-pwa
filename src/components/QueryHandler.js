@@ -1,8 +1,8 @@
 import React from "react";
 import { Query } from "react-apollo";
-import withConsumer from "../context/Consumer";
-import Loading from "./Loading";
-import ErrorHandler from "./ErrorHandler";
+import withConsumer from "context/Consumer";
+import Loading from "components/Loading";
+import ErrorHandler from "components/ErrorHandler";
 
 const QueryHandler = ({
   query,

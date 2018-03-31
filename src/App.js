@@ -1,14 +1,13 @@
 import React, { Component } from "react";
-import Consumer from "./context/Consumer";
-import Provider from "./context/Provider";
-// import Loadable from 'react-loadable'; :´(
-import asyncComponent from "./components/AsyncComponent";
+import Consumer from "context/Consumer";
+import Provider from "context/Provider";
+import asyncComponent from "components/AsyncComponent";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 
-const LoadableHome = asyncComponent(() => import("./views/Home"));
-const LoadableAbout = asyncComponent(() => import("./views/About"));
+const LoadableHome = asyncComponent(() => import("views/Home"));
+const LoadableAbout = asyncComponent(() => import("views/About"));
 
 class App extends Component {
   constructor(props) {

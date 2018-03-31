@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import withConsumer from "../context/Consumer";
+import withConsumer from "context/Consumer";
 
 export class About extends Component {
   constructor(props) {
