@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import withConsumer from "../context/Consumer";
 
 export class About extends Component {
   constructor(props) {
@@ -11,9 +12,11 @@ export class About extends Component {
     return (
       <div>
         <h1>About</h1>
+        <p>Age: {this.props.globalState.age}</p>
+
       </div>
     );
   }
 }
 
-export default About;
+export default withConsumer(About);

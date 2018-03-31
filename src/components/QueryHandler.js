@@ -14,7 +14,7 @@ const QueryHandler = ({
   <Query query={query}>
     {({ loading, error, data, ...rest }) => {
       if (loading) return <Loading size={loadingSize} />;
-      if (error) return <ErrorHandler />;
+      if (error) return <ErrorHandler error={error} />;
       return <Component data={data} error={error} />;
     }}
   </Query>

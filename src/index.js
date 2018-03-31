@@ -12,11 +12,11 @@ import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
 // import { InMemoryCache } from "apollo-cache-inmemory"; // Makr new component
 
-import gql from 'graphql-tag'
+import gql from "graphql-tag";
 // import { graphql } from 'react-apollo'
 
 const client = new ApolloClient({
-  uri: "https://w5xlvm3vzz.lp.gql.zone/graphql",
+  uri: "https://w5xlvm3vzz.lp.gql.zone/graphql"
 });
 
 // current local graphql

@@ -5,13 +5,13 @@ import gql from "graphql-tag";
 import { Grid } from "semantic-ui-react";
 
 const localQuery = gql`
-{
-  rates(currency: "USD") {
-    currency
-    rate
+  {
+    rates(currency: "USD") {
+      currency
+      rate
+    }
   }
-}
-`
+`;
 
 export class Home extends Component {
   constructor(props) {
@@ -36,8 +36,11 @@ export class Home extends Component {
 
             <hr />
 
-            <QueryHandler query={localQuery} Component={getData} loadingSize="small" />
-          
+            <QueryHandler
+              query={localQuery}
+              Component={getData}
+              loadingSize="small"
+            />
           </Grid.Column>
         </Grid.Row>
       </Grid>

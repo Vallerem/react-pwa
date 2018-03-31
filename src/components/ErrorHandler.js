@@ -1,10 +1,12 @@
 import React from "react";
-import { Loader } from "semantic-ui-react";
+import { Message } from "semantic-ui-react";
 
-const Loading = ({ size }) => (
-  <div>
-    <Loader active size={size} />
-  </div>
-);
+const ErrorHandler = ({ error }) => {
+  return (
+    <div>
+      <Message color="red">Error fetching the data</Message>
+    </div>
+  );
+};
 
-export default Loading;
+export default ErrorHandler;
