@@ -10,13 +10,15 @@ import registerServiceWorker from "registerServiceWorker";
 import ApolloClient from "apollo-boost";
 // import { HttpLink } from "apollo-link-http"; // NCATM
 import { ApolloProvider } from "react-apollo";
-// import { InMemoryCache } from "apollo-cache-inmemory"; // Makr new component
+import { InMemoryCache } from "apollo-cache-inmemory"; 
 
 import gql from "graphql-tag";
-// import { graphql } from 'react-apollo'
+
+const cache = new InMemoryCache();
 
 const client = new ApolloClient({
-  uri: "https://w5xlvm3vzz.lp.gql.zone/graphql"
+  uri: "https://w5xlvm3vzz.lp.gql.zone/graphql",
+  cache
 });
 
 // current local graphql
