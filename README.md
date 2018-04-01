@@ -1,1 +1,3 @@
 # React Progressive Web App
+
+GraphQL in node + express + Mongodb in progress...
