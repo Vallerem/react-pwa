@@ -14,10 +14,12 @@ export default class Provider extends Component {
         value={{
           state: this.state,
           actions: {
-            growAYearOlder: () =>
-              this.setState({
-                age: this.state.age + 1
-              }),
+            growAYearOlder: () => {
+               this.setState((prevState) => {
+                //  console.log(prevState)
+                return {age: prevState.age + 1}
+              })
+            }
           }
         }}
       >
