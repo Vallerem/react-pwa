@@ -16,17 +16,6 @@ const books = [
   }
 ];
 
-const booksMeh = [
-  {
-    title: "Harry Potter and the Sorcerer's stone",
-    author: "ddddd"
-  },
-  {
-    title: "f sd",
-    author: "sd sd"
-  }
-];
-
 // The GraphQL schema in string form
 const typeDefs = `
   type Query { books: [Book] }
@@ -43,8 +32,6 @@ const schema = makeExecutableSchema({
   typeDefs,
   resolvers
 });
-
-
 
 // Initialize the app
 const app = express();
